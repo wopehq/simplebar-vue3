@@ -16,6 +16,16 @@
       "skipLibCheck": true,
       "lib": ["esnext", "dom"]
    },
-   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+   "include": [
+      "src/**/*.ts",
+      "src/**/*.d.ts",
+      "src/**/*.tsx",
+      "src/**/*.vue",
+      "test/**/*.ts",
+      "test/**/*.d.ts",
+      "test/**/*.tsx",
+      "test/**/*.vue",
+      "env.d.ts"
+   ],
    "exclude": ["node_modules"]
 }
