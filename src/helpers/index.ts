@@ -18,12 +18,6 @@ export function filterAttrs(attrs: Record<string, any>, which: 'props' | 'events
 export function removeUndefinedsFromObject<T extends object>(object: T): Partial<T> {
    return Object.keys(object).reduce((acc, key) => {
       const targetValue = object[key as keyof typeof object];
-      if (targetValue) {
-         return {
-            ...acc,
-            [key]: targetValue
-         };
-      }
-      return acc;
+      return targetValue ? { ...acc, [key]: targetValue } : acc;
    }, {});
 }
