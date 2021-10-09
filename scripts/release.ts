@@ -121,7 +121,6 @@ async function main() {
    await execute('git', ['commit', '-m', commitMessage]);
    await execute('git', ['push', 'origin', branchName]);
 
-   return;
    const { value: willBePublished }: PromptVal<boolean> = await prompt({
       type: 'toggle',
       name: 'value',
