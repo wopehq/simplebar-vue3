@@ -1,10 +1,10 @@
 import type { BackgroundColor, ForegroundColor } from 'chalk';
 import execa, { Options } from 'execa';
-import fse, { move } from 'fs-extra';
 import prompt, { Choice } from 'prompts';
 
 import chalk from 'chalk';
 import fg from 'fast-glob';
+import fse from 'fs-extra';
 import { join } from 'path';
 import pkgJSON from '../package.json';
 
