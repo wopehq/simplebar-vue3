@@ -121,16 +121,22 @@ async function main() {
    await execute('git', ['commit', '-m', commitMessage]);
    await execute('git', ['push', 'origin', branchName]);
 
-   await sleep(300);
+   await sleep(500);
 
    const { value: willBePublished }: PromptVal<boolean> = await prompt({
-      type: 'toggle',
+      type: 'select',
       name: 'value',
       message: 'Publish to npm?',
-      active: 'yes',
-      inactive: 'no',
+      choices: [
+         { title: 'Publish', value: true },
+         { title: "Don't Publish", value: false }
+      ],
       initial: true
    });
+   console.log({
+      willBePublished
+   });
+   return;
 
    if (willBePublished) {
       await execute('npm', ['run', 'build']);
