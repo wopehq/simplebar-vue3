@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-   <div v-bind="$attrs" ref="element">
+   <div ref="element">
       <slot />
    </div>
 </template>
