@@ -109,13 +109,9 @@ async function main() {
       active: 'yes',
       inactive: 'no'
    });
-
    if (!isSure) {
       process.exit();
    }
-
-   const newPkgJson = { ...pkgJSON, version: newVersion };
-   await writeNewPackageJson(newPkgJson);
 
    const { value: willBePublished }: PromptVal<boolean> = await prompt({
       type: 'toggle',
@@ -125,6 +121,9 @@ async function main() {
       inactive: 'no',
       initial: true
    });
+
+   const newPkgJson = { ...pkgJSON, version: newVersion };
+   await writeNewPackageJson(newPkgJson);
 
    await execute('git', ['add', ...gitAddFiles]);
    await execute('git', ['commit', '-m', commitMessage]);
