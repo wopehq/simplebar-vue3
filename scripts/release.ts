@@ -117,26 +117,18 @@ async function main() {
    const newPkgJson = { ...pkgJSON, version: newVersion };
    await writeNewPackageJson(newPkgJson);
 
+   const { value: willBePublished }: PromptVal<boolean> = await prompt({
+      type: 'toggle',
+      name: 'value',
+      message: 'Publish to npm?',
+      active: 'yes',
+      inactive: 'no',
+      initial: true
+   });
+
    await execute('git', ['add', ...gitAddFiles]);
    await execute('git', ['commit', '-m', commitMessage]);
    await execute('git', ['push', 'origin', branchName]);
-
-   await sleep(500);
-
-   const { value: willBePublished }: PromptVal<boolean> = await prompt({
-      type: 'select',
-      name: 'value',
-      message: 'Publish to npm?',
-      choices: [
-         { title: 'Publish', value: true },
-         { title: "Don't Publish", value: false }
-      ],
-      initial: true
-   });
-   console.log({
-      willBePublished
-   });
-   return;
 
    if (willBePublished) {
       await execute('npm', ['run', 'build']);
