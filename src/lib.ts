@@ -1,1 +1,1 @@
-export { default as SimpleBar } from './components/ScrollView.vue';
+export { default as SimpleBar } from './ScrollView.vue';

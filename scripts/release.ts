@@ -1,8 +1,10 @@
+import type { BackgroundColor, ForegroundColor } from 'chalk';
 import execa, { Options } from 'execa';
+import fse, { move } from 'fs-extra';
 import prompt, { Choice } from 'prompts';
 
+import chalk from 'chalk';
 import fg from 'fast-glob';
-import fse from 'fs-extra';
 import { join } from 'path';
 import pkgJSON from '../package.json';
 
@@ -18,7 +20,8 @@ async function main() {
 
    const allFiles = await fg('./**/*', {
       cwd: process.cwd(),
-      ignore: ignoredList
+      ignore: ignoredList,
+      markDirectories: true
    });
 
    const fileChoices: Choice[] = allFiles.map((v) => {
@@ -57,6 +60,40 @@ async function main() {
       initial: 'main'
    });
 
+   log('Choices you made:', 'yellow');
+
+   log('Version:', 'magenta');
+   log(indent(newVersion), 'blue');
+
+   log('Files:', 'magenta');
+   for (const file of gitAddFiles) {
+      if (file === '.') log(indent('All Files'), 'blue');
+      else log(indent(file), 'blue');
+   }
+
+   log('Commit Message:', 'magenta');
+   log(indent(commitMessage), 'blue');
+
+   log('Branch:', 'magenta');
+   log(indent(branchName), 'blue');
+
+   const { value: isSure }: PromptVal<boolean> = await prompt({
+      type: 'toggle',
+      name: 'value',
+      message: 'Are you sure to add these changes?',
+      active: 'yes',
+      inactive: 'no'
+   });
+
+   if (!isSure) {
+      process.exit();
+   }
+
+   await execute('npm', ['run', 'build']);
+   await sleep(300);
+
+   await moveTypeFile();
+
    const newPkgJson = { ...pkgJSON, version: newVersion };
    await writeNewPackageJson(newPkgJson);
 
@@ -71,7 +108,7 @@ async function readGitignore() {
 }
 
 async function writeNewPackageJson(newPKG: typeof pkgJSON) {
-   const stringifiedPackageJSON = JSON.stringify(newPKG);
+   const stringifiedPackageJSON = JSON.stringify(newPKG, undefined, 3);
    return await fse.writeFile(join(root, 'package.json'), stringifiedPackageJSON);
 }
 
@@ -80,4 +117,34 @@ async function execute(command: string, commandArguments: string[], options?: Op
       ...options,
       stdio: 'inherit'
    });
+}
+
+async function log(msg: string, color?: typeof ForegroundColor, bgColor?: typeof BackgroundColor) {
+   if (color) {
+      msg = chalk[color](msg);
+   }
+   if (bgColor) {
+      msg = chalk[bgColor](msg);
+   }
+   return console.log(msg);
+}
+
+function sleep(ms: number): Promise<void> {
+   return new Promise((resolve) => {
+      setTimeout(() => {
+         resolve();
+      }, ms);
+   });
+}
+
+function indent(msg: string) {
+   const indentValue = '   ';
+   return indentValue + msg;
+}
+
+async function moveTypeFile() {
+   const fileName = 'lib.d.ts';
+   const libDTS = join(root, 'src', 'lib.d.ts');
+   const distLibDTS = join(root, 'dist', 'lib.d.ts');
+   await fse.move(libDTS, distLibDTS);
 }

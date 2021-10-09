@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref, toRefs } from 'vue';
 import SimpleBar, { Options } from 'simplebar';
-import { removeUndefinedsFromObject } from '../helpers';
+import { removeUndefinedsFromObject } from './helpers';
 
 type TemplateRef = HTMLElement | null;
 
