@@ -1,3 +1,5 @@
+[![simplebar-vue3](https://img.shields.io/npm/v/simplebar-vue3)](https://npmjs.com/package/simplebar-vue3)
+
 ### A Vue3 Wrapper for SimpleBar
 
 Currently work in progress. Works but not finished yet. You can find the documentation below.
