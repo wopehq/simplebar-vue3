@@ -14,14 +14,19 @@ interface PromptVal<T> {
    value: T;
 }
 
+enum SelectType {
+   ByHand,
+   SelectFromList
+}
+
 async function main() {
    let gitignore = await readGitignore();
    const ignoredList = gitignore.split('\n').filter(Boolean);
 
    const allFiles = await fg('./**/*', {
       cwd: process.cwd(),
-      ignore: ignoredList,
-      markDirectories: true
+      ignore: ignoredList
+      // markDirectories: true
    });
 
    const fileChoices: Choice[] = allFiles.map((v) => {
@@ -35,15 +40,35 @@ async function main() {
       initial: pkgJSON.version
    });
 
-   let { value: gitAddFiles }: PromptVal<string[]> = await prompt({
-      type: 'multiselect',
+   const { value: selectionType }: PromptVal<SelectType> = await prompt({
+      type: 'select',
+      message: 'How do you want to add files?',
       name: 'value',
-      message: `Select files to be pushed`,
-      choices: [{ title: 'All Files', value: '.' }, ...fileChoices]
+      choices: [
+         { title: 'Type By Hand', value: SelectType.ByHand },
+         { title: 'Select Files From List', value: SelectType.SelectFromList }
+      ]
    });
 
-   if (gitAddFiles.length > 1 && gitAddFiles.includes('.')) {
-      gitAddFiles = ['.'];
+   let gitAddFiles: string[] = [];
+   if (selectionType === SelectType.SelectFromList) {
+      let { value: files }: PromptVal<string[]> = await prompt({
+         type: 'multiselect',
+         name: 'value',
+         message: `Select files to be pushed`,
+         choices: [{ title: 'All Files', value: '.' }, ...fileChoices]
+      });
+      if (files.length > 1 && files.includes('.')) {
+         files = ['.'];
+      }
+      gitAddFiles = files;
+   } else {
+      const { value: files }: PromptVal<string> = await prompt({
+         type: 'text',
+         name: 'value',
+         message: `Type files to be pushed`
+      });
+      gitAddFiles = [files];
    }
 
    const { value: commitMessage }: PromptVal<string> = await prompt({
@@ -144,7 +169,7 @@ function indent(msg: string) {
 
 async function moveTypeFile() {
    const fileName = 'lib.d.ts';
-   const libDTS = join(root, 'src', 'lib.d.ts');
-   const distLibDTS = join(root, 'dist', 'lib.d.ts');
-   await fse.move(libDTS, distLibDTS);
+   const libDTS = join(root, 'src', fileName);
+   const distLibDTS = join(root, 'dist', fileName);
+   await fse.copyFile(libDTS, distLibDTS);
 }
