@@ -1,4 +1,4 @@
-import { Options } from 'simplebar';
+import _SimpleBar, { Options } from 'simplebar';
 import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue';
 
 export declare const SimpleBar: {
@@ -17,4 +17,5 @@ export declare interface SimpleBarProps {
    scrollbarMaxSize?: Options['scrollbarMaxSize'];
    scrollbarMinSize?: Options['scrollbarMinSize'];
    timeout?: Options['timeout'];
+   onCreated: (value: typeof _SimpleBar) => void;
 }
