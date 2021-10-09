@@ -16,7 +16,6 @@ specifiers:
   typescript: '4.3'
   vite: ^2.6.4
   vue: 3.2.0
-  vue-dts-gen: ^0.3.0
   vue-tsc: ^0.3.0
 
 devDependencies:
@@ -35,7 +34,6 @@ devDependencies:
   typescript: 4.3.5
   vite: 2.6.5
   vue: 3.2.0
-  vue-dts-gen: 0.3.0
   vue-tsc: 0.3.0_typescript@4.3.5
 
 packages:
@@ -358,11 +356,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       fill-range: 7.0.1
-    dev: true
-
-  /cac/6.7.8:
-    resolution: {integrity: sha512-EozC0vCN4aX3LbcVAzN0tW0qKeDFDXZ74xIAfCviLP2B6yzWPMaYLlMP0EHi2oZKvNqRgY35bOKQtWc5xQ0dDA==}
-    engines: {node: '>=8'}
     dev: true
 
   /call-bind/1.0.2:
@@ -1182,11 +1175,6 @@ packages:
     resolution: {integrity: sha512-t3566CMweOFlUk7Y1DJMu5OrtpoZEb6aSTsLQVT3wtrIEJ5NhcY9G/Oqxvjllzl4a15zXfFlcr9q40LbLVQJqw==}
     dev: true
 
-  /resolve-from/5.0.0:
-    resolution: {integrity: sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==}
-    engines: {node: '>=8'}
-    dev: true
-
   /resolve/1.20.0:
     resolution: {integrity: sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==}
     dependencies:
@@ -1493,15 +1481,6 @@ packages:
       vscode-languageserver-textdocument: 1.0.2
       vscode-pug-languageservice: 0.27.24
       vscode-typescript-languageservice: 0.27.25
-    dev: true
-
-  /vue-dts-gen/0.3.0:
-    resolution: {integrity: sha512-PXSqyEfFgcqjuioFYbLQtTHZ2+UCCY94uzo98/cQE6Vun/8sjD1Bo22R5E1xag2v2+0/eUl+SuDzldJR3U1AHQ==}
-    hasBin: true
-    dependencies:
-      cac: 6.7.8
-      fast-glob: 3.2.7
-      resolve-from: 5.0.0
     dev: true
 
   /vue-tsc/0.3.0_typescript@4.3.5:
