@@ -20,7 +20,7 @@ enum SelectType {
 }
 
 async function main() {
-   let gitignore = await readGitignore();
+   const gitignore = await readGitignore();
    const ignoredList = gitignore.split('\n').filter(Boolean);
 
    const allFiles = await fg('./**/*', {
