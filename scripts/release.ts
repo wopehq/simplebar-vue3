@@ -119,7 +119,18 @@ async function main() {
       inactive: 'no'
    });
    if (!isSure) {
-      process.exit();
+      const { value: doCycle }: PromptVal<boolean> = await prompt({
+         type: 'toggle',
+         name: 'value',
+         message: 'Do you want to make selections again?',
+         active: 'yes',
+         inactive: 'no',
+         initial: false
+      });
+      if (doCycle) {
+         return main();
+      }
+      return;
    }
 
    const newPkgJson = { ...pkgJSON, version: newVersion };
