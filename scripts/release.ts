@@ -102,6 +102,15 @@ async function main() {
    log('Branch:', 'magenta');
    log(indent(branchName), 'blue');
 
+   const { value: willBePublished }: PromptVal<boolean> = await prompt({
+      type: 'toggle',
+      name: 'value',
+      message: 'Publish to npm?',
+      active: 'yes',
+      inactive: 'no',
+      initial: false
+   });
+
    const { value: isSure }: PromptVal<boolean> = await prompt({
       type: 'toggle',
       name: 'value',
@@ -112,15 +121,6 @@ async function main() {
    if (!isSure) {
       process.exit();
    }
-
-   const { value: willBePublished }: PromptVal<boolean> = await prompt({
-      type: 'toggle',
-      name: 'value',
-      message: 'Publish to npm?',
-      active: 'yes',
-      inactive: 'no',
-      initial: true
-   });
 
    const newPkgJson = { ...pkgJSON, version: newVersion };
    await writeNewPackageJson(newPkgJson);
