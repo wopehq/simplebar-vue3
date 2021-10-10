@@ -17,5 +17,5 @@ export declare interface SimpleBarProps {
    scrollbarMaxSize?: Options['scrollbarMaxSize'];
    scrollbarMinSize?: Options['scrollbarMinSize'];
    timeout?: Options['timeout'];
-   onCreated: (value: typeof _SimpleBar) => void;
+   onCreated: (value: _SimpleBar) => void;
 }
