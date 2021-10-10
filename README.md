@@ -2,8 +2,6 @@
 
 ### A Vue3 Wrapper for SimpleBar
 
-Currently work in progress. Works but not finished yet. You can find the documentation below.
-
 ### Intallation
 
 For npm and pnpm:
