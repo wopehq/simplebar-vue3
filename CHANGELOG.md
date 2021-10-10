@@ -1,3 +1,7 @@
+## 0.1.1
+
+-  Fixed typings.
+
 ## 0.1.0
 
 -  Added template ref supoprt.

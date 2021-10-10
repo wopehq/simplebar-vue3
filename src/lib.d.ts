@@ -1,4 +1,3 @@
-import SimpleBar from 'simplebar';
 import _SimpleBar, { Options } from 'simplebar';
 import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue';
 
@@ -24,4 +23,4 @@ export declare interface SimpleBarProps {
 }
 
 export declare type SimplebarInstanceRef = _SimpleBar | null;
-export type { useSimplebar } from './composables/simplebar';
+export { useSimplebar } from './composables/simplebar';
