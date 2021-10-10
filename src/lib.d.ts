@@ -23,4 +23,4 @@ export declare interface SimpleBarProps {
 }
 
 export declare type SimplebarInstanceRef = _SimpleBar | null;
-export { useSimplebar } from './composables/simplebar';
+export declare function useSimplebar(): _SimpleBar;
