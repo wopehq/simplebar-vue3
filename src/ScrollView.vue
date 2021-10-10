@@ -68,7 +68,7 @@ onDeactivated(() => {
 </script>
 
 <template>
-   <div ref="element">
+   <Component :is="tag" ref="element">
       <slot />
-   </div>
+   </Component>
 </template>

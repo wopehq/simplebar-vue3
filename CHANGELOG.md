@@ -1,3 +1,7 @@
+## 0.1.3
+
+-  Add `tag` prop support.
+
 ## 0.1.1 / 0.1.2
 
 -  Fixed typings.

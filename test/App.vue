@@ -23,6 +23,7 @@ const log = console.log;
    <KeepAlive>
       <ScrollView
          v-if="isOpen"
+         tag="section"
          :ref="log"
          @scroll="log"
          @created="log"
