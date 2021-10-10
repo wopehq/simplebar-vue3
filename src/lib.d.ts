@@ -1,3 +1,4 @@
+import SimpleBar from 'simplebar';
 import _SimpleBar, { Options } from 'simplebar';
 import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue';
 
@@ -18,4 +19,9 @@ export declare interface SimpleBarProps {
    scrollbarMinSize?: Options['scrollbarMinSize'];
    timeout?: Options['timeout'];
    onCreated: (value: _SimpleBar) => void;
+   onScroll: (event: Event) => void;
+   onWheel: (event: WheelEvent) => void;
 }
+
+export declare type SimplebarInstanceRef = _SimpleBar | null;
+export type { useSimplebar } from './composables/simplebar';
