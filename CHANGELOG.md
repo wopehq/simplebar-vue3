@@ -1,3 +1,11 @@
+## 0.1.5
+
+-  Bundle production code as `es2020`
+
+## 0.1.4
+
+-  Fix typings
+
 ## 0.1.3
 
 -  Add `tag` prop support.

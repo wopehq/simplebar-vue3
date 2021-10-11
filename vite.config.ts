@@ -8,7 +8,7 @@ const root = process.cwd();
 export default defineConfig({
    plugins: [vue()],
    build: {
-      target: 'esnext',
+      target: 'es2020',
 
       lib: {
          entry: path.resolve(root, 'src', 'lib.ts'),
