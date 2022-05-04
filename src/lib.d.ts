@@ -1,5 +1,5 @@
 import _SimpleBar, { Options } from 'simplebar';
-import { AllowedComponentProps, ComponentCustomProps, VNodeProps } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNodeProps, Ref } from 'vue';
 
 export declare const SimpleBar: {
    new (): {
@@ -23,4 +23,4 @@ export declare interface SimpleBarProps {
 }
 
 export declare type SimplebarInstanceRef = _SimpleBar | null;
-export declare function useSimplebar(): _SimpleBar;
+export declare function useSimplebar(): Ref<_SimpleBar>;
