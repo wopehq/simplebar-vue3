@@ -7,7 +7,7 @@
    "exports": {
       ".": {
          "require": "./dist/simplebar-vue3.umd.js",
-         "import": "./idst/simplebar-vue3.mjs"
+         "import": "./dist/simplebar-vue3.mjs"
       }
    },
    "repository": {
