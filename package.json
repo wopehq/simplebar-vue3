@@ -1,13 +1,13 @@
 {
    "name": "simplebar-vue3",
-   "version": "0.1.7",
+   "version": "0.1.8",
    "main": "./dist/simplebar-vue3.umd.js",
-   "module": "./dist/simplebar-vue3.es.js",
+   "module": "./dist/simplebar-vue3.mjs",
    "types": "./dist/lib.d.ts",
    "exports": {
       ".": {
          "require": "./dist/simplebar-vue3.umd.js",
-         "import": "./dist/simplebar-vue3.es.js"
+         "import": "./idst/simplebar-vue3.mjs"
       }
    },
    "repository": {
@@ -25,8 +25,7 @@
    "license": "MIT",
    "scripts": {
       "dev": "vite",
-      "build": "vue-tsc --noEmit && vite build",
-      "release": "ts-node --transpile-only scripts/release.ts"
+      "build": "vue-tsc --noEmit && vite build"
    },
    "devDependencies": {
       "@types/fs-extra": "^9.0.13",
