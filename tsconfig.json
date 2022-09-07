@@ -1,16 +1,11 @@
 {
    "compilerOptions": {
-      "disableSizeLimit": true,
       "target": "esnext",
       "useDefineForClassFields": true,
       "module": "CommonJS",
       "moduleResolution": "node",
       "strict": true,
       "jsx": "preserve",
-      "sourceMap": true,
-      "outDir": "dist",
-      "declaration": true,
-      "declarationDir": "dist/types",
       "resolveJsonModule": true,
       "esModuleInterop": true,
       "skipLibCheck": true,

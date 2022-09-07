@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import vue from '@vitejs/plugin-vue';
-import * as fse from 'fs-extra';
+import dts from 'vite-plugin-dts';
 
 const root = process.cwd();
 
@@ -9,26 +9,26 @@ const root = process.cwd();
 export default defineConfig({
    plugins: [
       vue(), //
-      {
-         name: 'plugin:move-types',
-         apply: 'build',
-         async closeBundle() {
-            const fileName = 'lib.d.ts';
-            const libDTS = path.join(root, 'src', fileName);
-            const distLibDTS = path.join(root, 'dist', fileName);
-            await fse.copyFile(libDTS, distLibDTS);
-         }
-      }
+      dts({
+         outputDir: 'dist/types',
+         include: ['src']
+      })
    ],
    build: {
       target: 'es2020',
       lib: {
          entry: path.resolve(root, 'src', 'lib.ts'),
-         name: 'simplebar-vue3',
-         formats: ['es', 'umd']
+         name: 'SimpleBarVue3',
+         formats: ['es', 'umd', 'iife']
       },
       rollupOptions: {
-         external: ['vue', 'simplebar']
+         external: ['vue', 'simplebar'],
+         output: {
+            globals: {
+               vue: 'Vue',
+               simplebar: 'SimpleBar'
+            }
+         }
       }
    }
 });

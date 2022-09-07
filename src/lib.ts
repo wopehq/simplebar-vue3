@@ -1,2 +1,2 @@
-export { default as SimpleBar } from './ScrollView.vue';
+export { default as SimpleBar, type SimplebarInstanceRef, type Props } from './Component';
 export { useSimplebar } from './composables/simplebar';

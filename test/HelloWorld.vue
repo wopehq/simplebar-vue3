@@ -5,7 +5,7 @@ import { useSimplebar } from '../src/composables/simplebar';
 defineProps<{ msg: string }>();
 const simplebar = useSimplebar();
 setTimeout(() => {
-   console.log(simplebar.value);
+   console.log('HelloWorld.vue:', simplebar.value);
 }, 1000);
 const count = ref(0);
 </script>
