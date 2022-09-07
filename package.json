@@ -4,8 +4,8 @@
    "main": "./dist/simplebar-vue3.umd.js",
    "module": "./dist/simplebar-vue3.mjs",
    "types": "./dist/types/lib.d.ts",
-   "unpkg": "dist/petite-vue.iife.js",
-   "jsdelivr": "dist/petite-vue.iife.js",
+   "unpkg": "dist/simplebar-vue3.iife.js",
+   "jsdelivr": "dist/simplebar-vue3.iife.js",
    "exports": {
       ".": {
          "require": "./dist/simplebar-vue3.umd.js",
