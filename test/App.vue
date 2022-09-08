@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import HelloWorld from './HelloWorld.vue';
 import { ref } from 'vue';
-// import { type SimplebarInstanceRef, SimpleBar } from '../src/lib';
-import { SimpleBar, SimplebarInstanceRef } from 'simplebar-vue3';
+import { type SimplebarInstanceRef, SimpleBar } from '../src/lib';
 
 const simplebar = ref<SimplebarInstanceRef>();
 const isOpen = ref(true);
