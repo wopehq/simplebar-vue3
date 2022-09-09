@@ -1,9 +1,11 @@
 {
    "name": "simplebar-vue3",
-   "version": "0.1.8",
+   "version": "0.2.0",
    "main": "./dist/simplebar-vue3.umd.js",
    "module": "./dist/simplebar-vue3.mjs",
-   "types": "./dist/lib.d.ts",
+   "types": "./dist/types/lib.d.ts",
+   "unpkg": "dist/simplebar-vue3.iife.js",
+   "jsdelivr": "dist/simplebar-vue3.iife.js",
    "exports": {
       ".": {
          "require": "./dist/simplebar-vue3.umd.js",
@@ -25,23 +27,19 @@
    "license": "MIT",
    "scripts": {
       "dev": "vite",
-      "build": "vue-tsc --noEmit && vite build"
+      "build": "vite build"
    },
    "devDependencies": {
-      "@types/fs-extra": "^9.0.13",
       "@types/node": "^16.11.54",
       "@types/prompts": "^2.0.14",
       "@vitejs/plugin-vue": "^3.0.3",
       "@vue/compiler-sfc": "^3.2.37",
-      "chalk": "^4.1.2",
-      "execa": "^5.1.1",
-      "fast-glob": "^3.2.11",
-      "fs-extra": "^10.1.0",
-      "prompts": "^2.4.2",
       "simplebar": "5.3.8",
+      "simplebar-vue3": "file:./",
       "ts-node": "^10.9.1",
       "typescript": "~4.7.4",
       "vite": "^3.0.9",
+      "vite-plugin-dts": "^1.4.1",
       "vue": "^3.2.37",
       "vue-tsc": "^0.38.9"
    },

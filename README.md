@@ -128,25 +128,17 @@ In **CHILD COMPONENTS** you can use `useSimplebar` composable to access simpleba
 </script>
 ```
 
-### Options
-
-You can give these options to the component as props.
+### Props
 
 ```ts
 import { Options } from 'simplebar';
 
 interface SimpleBarProps {
-   tag?: string; //default 'div'
-
-   // Simplebar Options as prop
-   autoHide?: Options['autoHide'];
-   classNames?: Options['classNames'];
-   clickOnTrack?: Options['clickOnTrack'];
-   direction?: Options['direction'];
-   forceVisible?: Options['forceVisible'];
-   scrollbarMaxSize?: Options['scrollbarMaxSize'];
-   scrollbarMinSize?: Options['scrollbarMinSize'];
-   timeout?: Options['timeout'];
+   /**
+    * @default {'div'}
+    */
+   tag?: string;
+   options?: Options;
 }
 ```
 
