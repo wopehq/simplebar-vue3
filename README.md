@@ -1,3 +1,5 @@
+!!! Please use native [simplebar-vue](https://www.npmjs.com/package/simplebar-vue) library. This library is not maintained anymore.
+
 [![simplebar-vue3](https://img.shields.io/npm/v/simplebar-vue3)](https://npmjs.com/package/simplebar-vue3)
 
 ### A Vue3 Wrapper for SimpleBar
