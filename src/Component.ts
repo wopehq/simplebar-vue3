@@ -46,7 +46,7 @@ export default defineComponent({
       const simplebarInstance = ref<SimplebarInstanceRef>(null);
       const element = ref<TemplateRef>(null);
 
-      expose(simplebarInstance);
+      expose(simplebarInstance.value);
       provideSimplebar(simplebarInstance as Ref<SimpleBar>);
 
       const simplebarHookHandler = (hook: 'mounted' | 'activated') => {
