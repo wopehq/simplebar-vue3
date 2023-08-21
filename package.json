@@ -1,6 +1,6 @@
 {
    "name": "simplebar-vue3",
-   "version": "0.2.0",
+   "version": "0.2.1",
    "main": "./dist/simplebar-vue3.umd.js",
    "module": "./dist/simplebar-vue3.mjs",
    "types": "./dist/types/lib.d.ts",
